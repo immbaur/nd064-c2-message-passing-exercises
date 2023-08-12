@@ -57,3 +57,7 @@ def notifications():
     response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
 
     return response
+
+@app.route('/')
+def hello():
+    return "Hello, World!"
