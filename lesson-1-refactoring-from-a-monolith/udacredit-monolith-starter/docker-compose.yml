@@ -3,25 +3,25 @@ version: '3'
 services:
   api:
     build: api
-    command: ["flask", "run", "--host=0.0.0.0"]
+    command: ["flask", "run", "--host=0.0.0.0", "--port=5000"]
     volumes:
       - ./api:/backend
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py
     ports:
-      - "5000:5000"
+      - "8080:5000"
 
   customers_api:
     build: customers_api
-    command: ["flask", "run", "--host=0.0.0.0"]
+    command: ["flask", "run", "--host=0.0.0.0", "--port=5000"]
     volumes:
       - ./customers_api:/backend
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py
     ports:
-      - "5001:5000"
+      - "8081:5000"
 
   client:
     tty: true
